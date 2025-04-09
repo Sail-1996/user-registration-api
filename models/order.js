@@ -34,12 +34,13 @@ const orderSchema = new mongoose.Schema({
   },
  date: { type: Date, default: Date.now },
  //populate all the fields
-  products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true , populate: { path: 'products', select: 'id title price description category image rating' } }],
+  products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true , populate: { path: 'products', select: 'id title price description category image rating' }  }],
  // products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true , populate: { path: 'products', select: 'id title price description category image rating' } }],
   payment: { 
     method: { type: String, required: false },
     amount: { type: Number, required: false },
    },
+   quantity: { type: String, required: false },
   status: { type: String, enum: ['Pending', 'Shipped', 'Delivered', "Cancel", "Pay"], default: 'Pending' },
 });
 
